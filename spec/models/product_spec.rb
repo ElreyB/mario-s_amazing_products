@@ -37,4 +37,15 @@ describe Product do
     expect(Product.three_recent_products).to eq [product5, product3, product2]
   end
 
+  it "returns most reviewed product" do
+    product1 = Product.create(name: "Cat Catcher", cost: "45.00", country_of_origin: "USA", created_at: (DateTime.now - 7.days))
+    product2 = Product.create(name: "Dog Catcher", cost: "45.00", country_of_origin: "France")
+
+    review1 = Review.create(author: "Sam", content: "h" * 55, rating: 3, product_id: product1.id)
+    review1 = Review.create(author: "Sam", content: "h" * 55, rating: 3, product_id: product1.id)
+    review1 = Review.create(author: "Sam", content: "h" * 55, rating: 3, product_id: product2.id)
+
+    expect(Product.most_reviewed_product).to eq product1
+  end
+
 end
