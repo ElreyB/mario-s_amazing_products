@@ -1,0 +1,17 @@
+<%= render 'layouts/errors', :object => @product %>
+
+<%= form_for @product do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :cost %>
+    <%= f.text_field :cost, class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :country_of_origin %>
+    <%= f.text_field :country_of_origin, class: "form-control"%>
+  </div>
+  <%= f.submit class: "btn-primary" %>
+<% end %>
