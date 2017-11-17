@@ -1,5 +1,28 @@
+<% content_for(:products) do %>
+<div class="dropdown">
+  <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Genres
+    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+  </button>
 
-<%= link_to "Add Product", new_product_path %>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <% if @products.any? %>
+      <% @products.each do |product| %>
+        <p class="dropdown-item"><%= link_to product.name, product_path(product) %></p>
+      <% end %>
+    <% else %>
+      <p>There are no Products!!!!</p>
+    <% end %>
+  </div>
+</div>
+<% end %>
+<% content_for(:navbar) do %>
+  <li><%= link_to "Add Product", new_product_path %></li>
+  <li><a href="#" id="admin">Admin</a></li>
+<% end %>
+
+
+
 <h2>Recent Products</h2>
 <% @three_recent_products.each do |product| %>
   <ul>
@@ -19,16 +42,4 @@
   <% end %>
 <% else %>
   <p>USA products coming soon!!!</p>
-<% end %>
-
-
-<h2>Products</h2>
-<% if @products.any? %>
-  <% @products.each do |product| %>
-    <ul>
-      <li><%= link_to product.name, product_path(product) %></li>
-    </ul>
-  <% end %>
-<% else %>
-  <p>Products coming soon!!!!</p>
 <% end %>
