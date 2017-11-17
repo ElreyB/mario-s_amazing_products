@@ -1,20 +1,31 @@
+<% content_for(:navbar) do %>
+  <li><a href="#" id="admin">Admin</a></li>
+<% end %>
 
-<p><%= link_to "Add review", new_product_review_path(@product) %></p>
-<p><%= link_to "Edit", edit_product_path(@product) %> |
-            <%= link_to "Delete", product_path(@product),
-            :data => {:confirm => "You sure?",
-              :method => "delete"} %></p>
-<h1><%= @product.name %></h1>
-<p><%= @product.cost %></p>
-<p><%= @product.country_of_origin %></p>
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="#"><%= link_to "Add review", new_product_review_path(@product) %></a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="#"><%= link_to "Edit Product", edit_product_path(@product) %></a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      <a href="#"><%= link_to "Delete Product", product_path(@product),
+                :data => {:confirm => "You sure?",
+                  :method => "delete"} %></a>
+    </li>
+  </ol>
+</nav>
+<h1><%= @product.name %> <small>From <%= @product.country_of_origin %> for $<%= @product.cost %> </small></h1>
 
 <% if @product.reviews.any? %>
   <ul>
     <% @product.reviews.each do |review| %>
       <li class="well reviews">
         <span class="admin">
-          <p><%= link_to "Edit", edit_product_review_path(@product, review) %> |
-            <%= link_to "Delete", product_review_path(@product, review),
+          <p><%= link_to "Edit Review", edit_product_review_path(@product, review) %> |
+            <%= link_to "Delete Review", product_review_path(@product, review),
             :data => {:confirm => "You sure?",
               :method => "delete"} %></p>
             </span>
@@ -22,7 +33,7 @@
         <% review.rating.times{%> <span class="glyphicon glyphicon-star" aria-hidden="true"></span><%}%>
         <hr>
         <blockquote class="blockquote">
-          <p>"<%= review.content %>"</p>
+          <p>"<%=review.content%>"</p>
         </blockquote>
       </li>
     <% end %>

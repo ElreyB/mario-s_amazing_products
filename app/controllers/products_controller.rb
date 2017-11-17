@@ -21,7 +21,8 @@ class ProductsController < ApplicationController
       flash[:notice] = "Your product has been saved!"
       redirect_to products_path
     else
-      render new
+      flash[:alert] = "Please fix these errors:"
+      render :new
     end
   end
 
@@ -35,7 +36,8 @@ class ProductsController < ApplicationController
       flash[:notice] = "Your product has been update!"
       redirect_to product_path(@product)
     else
-      render edit
+      flash[:alert] = "Please fix these errors:"
+      render :edit
     end
   end
 

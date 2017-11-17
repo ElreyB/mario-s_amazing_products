@@ -15,6 +15,7 @@
           <a href="/">Mario's Amazing Products</a>
         </div>
         <ul class="nav navbar-nav navbar-left">
+
           <li> <%= yield(:products) %> </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -27,6 +28,11 @@
       <% if flash[:notice] != nil %>
         <div class="alert alert-success">
           <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] != nil %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
         </div>
       <% end %>
 

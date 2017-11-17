@@ -16,7 +16,8 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Your review has been saved!"
       redirect_to product_path(@product)
     else
-      render new
+      flash[:alert] = "Please fix these errors:"
+      render :new
     end
   end
 
@@ -30,7 +31,8 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Your review has been update!"
       redirect_to review_path(@review)
     else
-      render edit
+      flash[:alert] = "Please fix these errors:"
+      render :edit
     end
   end
 
