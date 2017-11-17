@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @usa_products = Product.usa_products
+    @three_recent_products = Product.three_recent_products
+    @most_reviewed_product = Product.most_reviewed_product
   end
 
   def show

@@ -32,7 +32,6 @@ private
   def self.most_reviewed_product_id
     product_ids = product_id_with_count
     product_ids.key(product_ids.values.max)
-    # binding.pry
   end
 
 end

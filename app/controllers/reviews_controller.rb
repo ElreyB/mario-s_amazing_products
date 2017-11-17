@@ -5,12 +5,12 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
     @review = Review.new
   end
 
   def create
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
     @review = @product.reviews.new(review_params)
     if @review.save
       flash[:notice] = "Your review has been saved!"
@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
     @review = Review.find(params[:id])
     @review.destroy
     redirect_to product_path(@product)

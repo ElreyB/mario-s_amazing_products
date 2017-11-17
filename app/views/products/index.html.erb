@@ -1,6 +1,16 @@
 
 <%= link_to "Add Product", new_product_path %>
-<h1>USA Products</h1>
+<h2>Recent Products</h2>
+<% @three_recent_products.each do |product| %>
+  <ul>
+    <li><%= link_to product.name, product_path(product) %></li>
+  </ul>
+<% end %>
+
+<h2>Most Reviewed Product</h2>
+<p><%= link_to @most_reviewed_product.name, product_path(@most_reviewed_product) %></p>
+
+<h2>USA Products</h2>
 <% if @usa_products.any? %>
   <% @usa_products.each do |product| %>
     <ul>
@@ -12,7 +22,7 @@
 <% end %>
 
 
-<h1>Products</h1>
+<h2>Products</h2>
 <% if @products.any? %>
   <% @products.each do |product| %>
     <ul>
