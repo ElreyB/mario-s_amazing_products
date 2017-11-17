@@ -5,6 +5,6 @@ class Product < ActiveRecord::Base
 
   scope :recent_products, -> { where("created_at >= ?", (DateTime.now - 1.days)).order(created_at: :desc).limit(3)}
 
-  scope :use_products, -> { where({country_of_origin: "USA"})}
+  scope :usa_products, -> { where({ country_of_origin: ["USA", "usa", "United States of America"] }) }
 
 end

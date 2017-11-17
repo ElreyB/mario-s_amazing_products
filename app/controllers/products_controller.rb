@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @usa_products = Product.usa_products
   end
 
   def show
