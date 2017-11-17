@@ -5,3 +5,26 @@
 <h1><%= @product.name %></h1>
 <p><%= @product.cost %></p>
 <p><%= @product.country_of_origin %></p>
+
+<% if @product.reviews.any? %>
+  <ul>
+    <% @product.reviews.each do |review| %>
+      <li class="well reviews">
+        <span class="admin">
+          <p><%= link_to "Edit", edit_product_review_path(@product, review) %> |
+            <%= link_to "Delete", product_review_path(@product, review),
+            :data => {:confirm => "You sure?",
+              :method => "delete"} %></p>
+            </span>
+        <h3><%= review.author%></h3>
+        <% review.rating.times{%> <span class="glyphicon glyphicon-star" aria-hidden="true"></span><%}%>
+        <hr>
+        <blockquote class="blockquote">
+          <p>"<%= review.content %>"</p>
+        </blockquote>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No reviews for <%= @product.name %></p>
+<% end %>
