@@ -9,8 +9,11 @@
 _This app is a mock website for amazing products. As a user you can...._
 
 See list of Products
+
 Add, Edit, Delete Products
+
 See Reviews of Products
+
 Add, Edit, Delete reviews
 
 
