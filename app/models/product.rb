@@ -8,8 +8,10 @@ class Product < ActiveRecord::Base
   scope :usa_products, -> { where({ country_of_origin: ["USA", "usa", "United States of America"] }) }
 
   def self.most_reviewed_product
-    product = Product.find(most_reviewed_product_id)
-    product
+    if most_reviewed_product_id
+      product = Product.find(most_reviewed_product_id)
+      return product
+    end
   end
 
 

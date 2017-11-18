@@ -33,7 +33,9 @@
 <% end %>
 
 <h2>Most Reviewed Product</h2>
-<p><%= link_to @most_reviewed_product.name, product_path(@most_reviewed_product) %></p>
+<% if @most_reviewed_product %>
+  <p><%= link_to @most_reviewed_product.name, product_path(@most_reviewed_product) %></p>
+<% end %>
 
 <h2>USA Products</h2>
 <% if @usa_products.any? %>
