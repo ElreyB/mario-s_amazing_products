@@ -25,6 +25,7 @@
 <h2>Recent Products</h2>
 <% @three_recent_products.each do |product| %>
   <ul>
+    <img src="<%=product.image%>" alt="">
     <li><%= link_to product.name, product_path(product) %></li>
   </ul>
 <% end %>
