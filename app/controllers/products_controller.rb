@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
 
+  # before_action :authorize, only: [:secret]
+  #
+  # def secret
+  # end
+
   def index
     @products = Product.all
     @usa_products = Product.usa_products

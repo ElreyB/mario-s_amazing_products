@@ -22,7 +22,7 @@ describe Product do
   end
 
   it 'return products made in the USA' do
-    product1 = Product.create(name: "Cat Catcher", cost: "45.00", country_of_origin: "USA")
+    product1 = Product.create(name: "Cat Clippers", cost: "45.00", country_of_origin: "USA")
     product2 = Product.create(name: "Dog Catcher", cost: "45.00", country_of_origin: "France")
     product3 = Product.create(name: "Cat Sleeper", cost: "45.00", country_of_origin: "USA")
     expect(Product.usa_products).to eq [product1, product3]

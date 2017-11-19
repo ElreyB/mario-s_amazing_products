@@ -13,6 +13,7 @@ gem 'rails-ujs'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'bullet'
 gem 'faker'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'byebug', platform: :mri

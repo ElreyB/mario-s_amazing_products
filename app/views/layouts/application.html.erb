@@ -19,11 +19,19 @@
           <li> <%= yield(:products) %> </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li> <%= yield(:navbar) %> </li>
+          <% if current_user %>
+            <li><a href="#" id="admin">Admin</a></li>
+            <li><a href="#"> | <%=current_user.email %></a></li>
+            <li><%= link_to " | Sign out", '/signout' %></li>
+          <% else %>
+            <li><%= link_to "Sign up | ", 'signup' %></li>
+            <li><%= link_to "Sign in", '/signin' %></li>
+          <% end %>
         </ul>
       </div>
     </nav>
     <div class="container">
+
 
       <% if flash[:notice] != nil %>
         <div class="alert alert-success">
