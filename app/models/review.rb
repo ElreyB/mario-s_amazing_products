@@ -5,4 +5,6 @@ class Review < ActiveRecord::Base
   validates :content, length: { within: 50..250}
   validates :rating, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 
+  scope :of_product, -> (product_id){ where("product_id = ?", product_id)}
+
 end

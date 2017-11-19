@@ -14,6 +14,18 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def find_average
+    product_reviews = Review.of_product(self.id)
+    if product_reviews.length > 0
+      average_rating = product_reviews.reduce(0) do |sum, product|
+        sum + product.rating
+      end
+      return average_rating / product_reviews.length
+    else
+      return false
+    end
+  end
+
 
 private
 

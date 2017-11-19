@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @average_rating = @product.find_average
   end
 
   def new

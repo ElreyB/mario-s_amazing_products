@@ -13,7 +13,9 @@
     </li>
   </ol>
 </nav>
+<img src="<%=@product.image%>" alt="">
 <h1><%= @product.name %> <small>From <%= @product.country_of_origin %> for $<%= @product.cost %> </small></h1>
+<h3>Average Review Rating: <%= @average_rating %></h3>
 
 <% if @product.reviews.any? %>
   <ul>
