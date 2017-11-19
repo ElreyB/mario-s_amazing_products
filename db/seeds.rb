@@ -1,5 +1,8 @@
 Product.destroy_all
 Review.destroy_all
+User.destroy_all
+
+admin = User.create!(email: "admin@admin.com", password: "admin1234", password_confirmation: "admin1234", admin: true)
 
 50.times do
   index = rand(1..10)
