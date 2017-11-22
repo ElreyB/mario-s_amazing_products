@@ -19,3 +19,4 @@ end
 
 p "Create #{Product.count} products."
 p "Create #{Review.count} reviews."
+p "Create 1 admin user."

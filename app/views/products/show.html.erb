@@ -1,18 +1,20 @@
-<nav aria-label="breadcrumb" role="navigation">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <a href="#"><%= link_to "Add review", new_product_review_path(@product) %></a>
-    </li>
-    <li class="breadcrumb-item">
-      <a href="#"><%= link_to "Edit Product", edit_product_path(@product) %></a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page">
-      <a href="#"><%= link_to "Delete Product", product_path(@product),
-                :data => {:confirm => "You sure?",
-                  :method => "delete"} %></a>
-    </li>
-  </ol>
-</nav>
+  <nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="#"><%= link_to "Add review", new_product_review_path(@product) %></a>
+      </li>
+      <% if current_user && current_user.admin %>
+        <li class="breadcrumb-item">
+          <a href="#"><%= link_to "Edit Product", edit_product_path(@product) %></a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <a href="#"><%= link_to "Delete Product", product_path(@product),
+                    :data => {:confirm => "You sure?",
+                      :method => "delete"} %></a>
+        </li>
+      <% end %>
+    </ol>
+  </nav>
 <img src="<%=@product.image%>" alt="">
 <h1><%= @product.name %> <small>From <%= @product.country_of_origin %> for $<%= @product.cost %> </small></h1>
 <h3>Average Review Rating: <%= @average_rating %></h3>
@@ -21,12 +23,16 @@
   <ul>
     <% @product.reviews.each do |review| %>
       <li class="well reviews">
-        <span class="admin">
-          <p><%= link_to "Edit Review", edit_product_review_path(@product, review) %> |
-            <%= link_to "Delete Review", product_review_path(@product, review),
-            :data => {:confirm => "You sure?",
-              :method => "delete"} %></p>
-            </span>
+        <% if current_user &&  current_user.admin %>
+          <span>
+            <p>
+              <%= link_to "Edit Review", edit_product_review_path(@product, review) %> |
+              <%= link_to "Delete Review", product_review_path(@product, review),
+              :data => {:confirm => "You sure?",
+                :method => "delete"} %>
+            </p>
+          </span>
+        <% end %>
         <h3><%= review.author%></h3>
         <% review.rating.times{%> <span class="glyphicon glyphicon-star" aria-hidden="true"></span><%}%>
         <hr>
