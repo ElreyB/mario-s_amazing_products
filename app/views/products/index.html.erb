@@ -1,6 +1,5 @@
 <% content_for(:products) do %>
-<div class="dropdown">
-  <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button type="button" class="btn btn-secondary btn-xs dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Mario's Products
     <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
   </button>
@@ -14,7 +13,6 @@
       <p>There are no Products!!!!</p>
     <% end %>
   </div>
-</div>
 <% end %>
 
 <% if current_user && current_user.admin %>
@@ -25,8 +23,9 @@
   </nav>
 <% end %>
 
-<div class="row well recent_products">
+<div class="row well" id="recent-products">
   <h2>Recent Products</h2>
+  <hr>
   <ul>
     <% @three_recent_products.each do |product| %>
       <div class="col-md-4">
@@ -39,29 +38,29 @@
   </ul>
 </div>
 
+<div class="well row" id="most-reviewed-product">
+  <h2>Most Reviewed Product</h2>
+  <hr>
+  <% if @most_reviewed_product %>
+    <img src="<%=@most_reviewed_product.image%>" alt="">
+    <h4><%= link_to @most_reviewed_product.name, product_path(@most_reviewed_product) %></h4>
+  <% end %>
+</div>
 
 
-<h2>Most Reviewed Product</h2>
-<% if @most_reviewed_product %>
-  <img src="<%=@most_reviewed_product.image%>" alt="">
-  <h4><%= link_to @most_reviewed_product.name, product_path(@most_reviewed_product) %></h4>
-<% end %>
-
-
-
-<div class="row well usa_products">
+<div class="well row" id="usa-products">
   <h2>USA Products</h2>
+  <hr>
   <% if @usa_products.any? %>
   <ul>
     <% @usa_products.each do |product| %>
-      <div class="col-md-6">
-        <li>
-          <%= link_to product.name, product_path(product) %>
-        </li>
-      </div>
+      <li class="col-md-6 well">
+        <img src="<%=product.image%>" alt="">
+        <h4><%= link_to product.name, product_path(product)%></h4>
+      </li>
     <% end %>
   </ul>
   <% else %>
-  <p>USA products coming soon!!!</p>
+  <p class="text-light">USA products coming soon!!!</p>
   <% end %>
 </div>

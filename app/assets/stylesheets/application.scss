@@ -2,16 +2,11 @@
 @import "bootstrap";
 
 body {
-  background-color: #DED7BD;
+  background-color: #50514B;
 }
 
 body, a {
-  color: #B31B1B;
-}
-
-nav, ul.navbar-right a:hover {
-  background-color: #BACCBE;
-  border-radius: 0;
+  color: #50514B;
 }
 
 ul {
@@ -19,8 +14,7 @@ ul {
 }
 
 .dropdown {
-  margin-top: 6%;
-  margin-left: 45%;
+  margin-top: 3%;
 }
 
 .dropdown-item {
@@ -28,6 +22,19 @@ ul {
   margin: 0;
 }
 
-.recent_products, .product-details, .usa_products {
+.dropdown button {
+  width: 160px;
+}
+
+#recent-products, #product-details, #usa-products, #most-reviewed-product {
   text-align: center;
+  background-color: #7F8F85;
+}
+
+li.well, .breadcrumb, nav, ul.navbar-right a:hover {
+  background-color: #DED7BD;
+}
+
+.text-light, h2 {
+  color: #DED7BD;
 }

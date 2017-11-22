@@ -9,6 +9,7 @@
   </head>
 
   <body>
+
     <nav class="navbar">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -16,12 +17,9 @@
             <li><a class="navbar-brand" href="/">Mario's Amazing Products</a></li>
           </ul>
         </div>
-        <ul class="nav navbar-nav navbar-left">
-          <li> <%= yield(:products) %> </li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
-            <li><a href="#" id="admin">Admin</a></li>
+            <li class="dropdown"> <%= yield(:products) %> </li>
             <li><a href="#"> | <%=current_user.email %></a></li>
             <li><%= link_to " | Sign out", '/signout' %></li>
           <% else %>
@@ -31,9 +29,8 @@
         </ul>
       </div>
     </nav>
+
     <div class="container">
-
-
       <% if flash[:notice] != nil %>
         <div class="alert alert-success">
           <%= flash[:notice] %>
@@ -47,5 +44,6 @@
 
       <%= yield %>
     </div>
+
   </body>
 </html>
