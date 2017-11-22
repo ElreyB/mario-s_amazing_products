@@ -1,2 +1,33 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  background-color: #DED7BD;
+}
+
+body, a {
+  color: #B31B1B;
+}
+
+nav, ul.navbar-right a:hover {
+  background-color: #BACCBE;
+  border-radius: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.dropdown {
+  margin-top: 6%;
+  margin-left: 45%;
+}
+
+.dropdown-item {
+  padding: 7px;
+  margin: 0;
+}
+
+.recent_products, .product-details, .usa_products {
+  text-align: center;
+}

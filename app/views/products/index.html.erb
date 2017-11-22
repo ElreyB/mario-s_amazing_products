@@ -25,26 +25,43 @@
   </nav>
 <% end %>
 
-<h2>Recent Products</h2>
-<% @three_recent_products.each do |product| %>
+<div class="row well recent_products">
+  <h2>Recent Products</h2>
   <ul>
-    <img src="<%=product.image%>" alt="">
-    <li><%= link_to product.name, product_path(product) %></li>
+    <% @three_recent_products.each do |product| %>
+      <div class="col-md-4">
+        <li class="well">
+          <img src="<%=product.image%>" alt="">
+          <h4><%= link_to product.name, product_path(product) %></h4>
+        </li>
+      </div>
+    <% end %>
   </ul>
-<% end %>
+</div>
+
+
 
 <h2>Most Reviewed Product</h2>
 <% if @most_reviewed_product %>
-  <p><%= link_to @most_reviewed_product.name, product_path(@most_reviewed_product) %></p>
+  <img src="<%=@most_reviewed_product.image%>" alt="">
+  <h4><%= link_to @most_reviewed_product.name, product_path(@most_reviewed_product) %></h4>
 <% end %>
 
-<h2>USA Products</h2>
-<% if @usa_products.any? %>
-  <% @usa_products.each do |product| %>
-    <ul>
-      <li><%= link_to product.name, product_path(product) %></li>
-    </ul>
-  <% end %>
-<% else %>
+
+
+<div class="row well usa_products">
+  <h2>USA Products</h2>
+  <% if @usa_products.any? %>
+  <ul>
+    <% @usa_products.each do |product| %>
+      <div class="col-md-6">
+        <li>
+          <%= link_to product.name, product_path(product) %>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+  <% else %>
   <p>USA products coming soon!!!</p>
-<% end %>
+  <% end %>
+</div>

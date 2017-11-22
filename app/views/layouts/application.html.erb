@@ -12,10 +12,11 @@
     <nav class="navbar">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a href="/">Mario's Amazing Products</a>
+          <ul>
+            <li><a class="navbar-brand" href="/">Mario's Amazing Products</a></li>
+          </ul>
         </div>
         <ul class="nav navbar-nav navbar-left">
-
           <li> <%= yield(:products) %> </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
