@@ -5,7 +5,7 @@ body, .dropdown button, .dropdown-menu, ul.navbar-right .dropdown-item a:hover, 
   background-color: #50514B;
 }
 
-body, a {
+body, a, .form-group input {
   color: #50514B;
 }
 
@@ -26,7 +26,7 @@ ul {
   width: 160px;
 }
 
-#recent-products, #usa-products, #most-reviewed-product {
+#recent-products, #usa-products, #most-reviewed-product, .signin, input.btn.btn-block {
   text-align: center;
   background-color: #7F8F85;
 }
@@ -35,7 +35,7 @@ li.well, .breadcrumb, nav, ul.navbar-right a:hover {
   background-color: #DED7BD;
 }
 
-.text-light, h2, .dropdown-item a, button.text-light:hover {
+.text-light, h2, .dropdown-item a, button.text-light:hover, .signin {
   color: #DED7BD;
 }
 
@@ -46,4 +46,23 @@ li.well, .breadcrumb, nav, ul.navbar-right a:hover {
 #product-details {
   margin-top: 3%;
   text-align: center;
+}
+
+.signin-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.signin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input.btn.btn-block {
+  border: 1px solid #DED7BD
 }

@@ -20,7 +20,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
             <li class="dropdown"> <%= yield(:products) %> </li>
-            <li>| <a href="#"><%=current_user.email %></a>  |</li>
+            <li><a href="#"><%=current_user.email %></a></li>
             <li><%= link_to "|  Sign out  |", '/signout' %></li>
           <% else %>
             <li><%= link_to "|  Sign up |", 'signup' %></li>
@@ -30,7 +30,7 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container main">
       <% if flash[:notice] != nil %>
         <div class="alert alert-success">
           <%= flash[:notice] %>
