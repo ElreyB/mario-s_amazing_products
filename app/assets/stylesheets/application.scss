@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body, .dropdown button, .dropdown-menu, ul.navbar-right .dropdown-item a:hover{
+body, .dropdown button, .dropdown-menu, ul.navbar-right .dropdown-item a:hover, .panel-body, .panel-heading, #product-details {
   background-color: #50514B;
 }
 
@@ -26,7 +26,7 @@ ul {
   width: 160px;
 }
 
-#recent-products, #product-details, #usa-products, #most-reviewed-product {
+#recent-products, #usa-products, #most-reviewed-product {
   text-align: center;
   background-color: #7F8F85;
 }
@@ -37,4 +37,13 @@ li.well, .breadcrumb, nav, ul.navbar-right a:hover {
 
 .text-light, h2, .dropdown-item a, button.text-light:hover {
   color: #DED7BD;
+}
+
+.panel-heading {
+  border-bottom: 1px solid white;
+}
+
+#product-details {
+  margin-top: 3%;
+  text-align: center;
 }

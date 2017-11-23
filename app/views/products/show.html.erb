@@ -17,14 +17,14 @@
     </ol>
   </nav>
 
-  <div class="panel panel-default">
+  <div class="panel">
     <div class="panel-heading">
       <div class="row">
-        <div class="col-md-4 col-md-offset-2">
-          <img src="<%=@product.image%>" alt="product image">
+        <div class="col-md-6">
+          <img src="<%=@product.image%>" alt="product image" class="col-md-6 col-md-offset-3">
         </div>
-        <div class="col-md-6" id="product-details">
-          <h1><%= @product.name %> <br><small>From <%= @product.country_of_origin %> for $<%= @product.cost %> </small></h1>
+        <div class="col-md-4 text-light" id="product-details">
+          <h1><%= @product.name %> <br><small class="text-light">From <%= @product.country_of_origin %> for $<%= @product.cost %> </small></h1>
           <h3>Average Review Rating: <%= @average_rating %></h3>
         </div>
       </div>
@@ -44,7 +44,7 @@
                   </p>
                 </span>
               <% end %>
-              <h3><%= review.author%></h3>
+              <h3><%= review.author%> <small><%= review.created_at.strftime("%B %-d, %Y")%></small></h3>
               <% review.rating.times{%> <span class="glyphicon glyphicon-star" aria-hidden="true"></span><%}%>
               <hr>
               <blockquote class="blockquote">
