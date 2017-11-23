@@ -26,8 +26,17 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def self.three_images
+    images = product_images.shuffle
+    carousel_images = [images[0], images[1], images[2]]
+  end
 
 private
+
+  def self.product_images
+    products = Product.all
+    products.map { |product| product.image }
+  end
 
   def self.review_product_ids
     reviews = Review.all

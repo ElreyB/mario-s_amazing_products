@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
     @usa_products = Product.usa_products
     @three_recent_products = Product.three_recent_products
     @most_reviewed_product = Product.most_reviewed_product
+    @carousel_images = Product.three_images
   end
 
   def show
@@ -19,7 +20,7 @@ class ProductsController < ApplicationController
   def create
     image_category = [ "abstract", "animals", "business", "cats", "city", "food", "nightlife", "fashion", "people", "nature", "sports", "technics", "transport"]
     index = rand(1..10)
-    
+
     @product = Product.new(product_params)
     @product.image = Faker::LoremPixel.image("200x200", false, image_category[rand(0..image_category.length-1)], index)
     if @product.save
