@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
+body, .dropdown button, .dropdown-menu, ul.navbar-right .dropdown-item a:hover{
   background-color: #50514B;
 }
 
@@ -35,6 +35,6 @@ li.well, .breadcrumb, nav, ul.navbar-right a:hover {
   background-color: #DED7BD;
 }
 
-.text-light, h2 {
+.text-light, h2, .dropdown-item a, button.text-light:hover {
   color: #DED7BD;
 }
