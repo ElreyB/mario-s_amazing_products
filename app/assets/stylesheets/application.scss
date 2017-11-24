@@ -13,7 +13,7 @@ body, .dropdown button, .dropdown-menu, ul.navbar-right .dropdown-item a:hover, 
   background-color: #50514B;
 }
 
-body, a, .form-group input {
+body, a, .form-group input, #myCarousel h2 {
   color: #50514B;
 }
 
@@ -22,7 +22,7 @@ ul {
 }
 
 .dropdown {
-  margin-top: 3%;
+  margin-top: 4%;
 }
 
 .dropdown-item {
@@ -51,18 +51,14 @@ li.well, .breadcrumb, nav, ul.navbar-right a:hover {
   border-bottom: 1px solid white;
 }
 
+.panel {
+  border: 0;
+}
+
 #product-details {
   margin-top: 3%;
   text-align: center;
 }
-
-// .main {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   bottom: 0;
-//   right: 0;
-// }
 
 .signin, .signup {
   position: absolute;
@@ -79,11 +75,6 @@ input.btn.btn-block {
   width: 100%;
 }
 
-.space {
-  width: 100%;
-  height: 500%;
-}
-
-.carousel-caption {
-  text-shadow: 5px 5px 10px black;
+.home-photo {
+  max-width: 100%;
 }

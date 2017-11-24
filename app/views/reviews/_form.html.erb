@@ -3,15 +3,15 @@
 <%= form_for [@product, @review] do |f| %>
   <div class="form-group">
     <%= f.label :author %>
-    <%= f.text_field :author, class: "form-control"%>
+    <%= f.text_field :author, class: "form-control", placeholder: "Ex. Elrey, Sam"%>
   </div>
   <div class="form-group">
     <%= f.label :content %>
-    <%= f.text_area :content, class: "form-control", rows: 4, cols: 50 %>
+    <%= f.text_area :content, class: "form-control", rows: 4, cols: 50, placeholder: "Ex. Mario has amazing produsts!!!!" %>
   </div>
   <div class="form-group">
     <%= f.label :rating %>
-    <%=  f.number_field :rating, class: "form-control", max: 5, min: 1, steps: 1 %>
+    <%=  f.number_field :rating, class: "form-control", max: 5, min: 1, steps: 1, placeholder: "Rates are from 1-5" %>
   </div>
   <%= f.submit class: "btn-primary" %>
 <% end %>

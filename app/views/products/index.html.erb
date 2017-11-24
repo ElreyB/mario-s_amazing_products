@@ -33,19 +33,19 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img class="w-100" src="<%=@carousel_images[0]%>" alt="First slide">
+      <%= image_tag ("home-photo1.jpg"), class: 'w-100'%>
       <div class="carousel-caption">
         <h2>Amazing Projects</h2>
       </div>
     </div>
     <div class="item">
-      <img class="w-100" src="<%=@carousel_images[1]%>" alt="Second slide">
+      <%= image_tag ("home-photo2.jpg"), class: 'w-100'%>
       <div class="carousel-caption">
         <h2>That works for you.</h2>
       </div>
     </div>
     <div class="item">
-      <img class="w-100" src="<%=@carousel_images[2]%>" alt="Third slide">
+      <%= image_tag ("home-photo3.jpg"), class: 'w-100'%>
       <div class="carousel-caption">
         <h2><%= link_to "Sign In to See all our Products!!!", '/signin' %></h2>
       </div>
@@ -70,7 +70,7 @@
     <% @three_recent_products.each do |product| %>
       <div class="col-md-4">
         <li class="well">
-          <img src="<%=product.image%>" alt="">
+          <img class="home-photo" src="<%=product.image%>" alt="">
           <h4><%= link_to product.name, product_path(product) %></h4>
         </li>
       </div>
@@ -80,12 +80,12 @@
 
 <div class="well row" id="most-reviewed-product">
   <h3 class="text-light review-text">
-    Be the first to purchase out most recent product. Here at Mario's Amazing Products we ganruntte you will enjoy this product!
+    Be the first to purchase our most recent product. Here at Mario's Amazing Products we ganruntte you will enjoy this product!
   </h3>
   <hr>
   <% if @most_reviewed_product %>
-    <img src="<%=@most_reviewed_product.image%>" alt="">
     <h4><%= link_to @most_reviewed_product.name, product_path(@most_reviewed_product) %></h4>
+    <img class="home-photo" src="<%=@most_reviewed_product.image%>" alt="">
   <% end %>
 </div>
 
@@ -97,7 +97,7 @@
   <ul>
     <% @usa_products.each do |product| %>
       <li class="col-md-6 well">
-        <img src="<%=product.image%>" alt="">
+        <img class="home-photo" src="<%=product.image%>" alt="">
         <h4><%= link_to product.name, product_path(product)%></h4>
       </li>
     <% end %>

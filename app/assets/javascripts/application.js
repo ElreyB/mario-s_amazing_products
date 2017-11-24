@@ -15,6 +15,9 @@
 // = require jquery3
 // = require jquery_ujs
 // = require bootstrap-sprockets
+
 $(document).ready(function(){
-  $('#myCarousel').carousel('cycle')
+
+  $('#myCarousel').carousel('cycle');
+
 });
