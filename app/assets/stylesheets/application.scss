@@ -9,7 +9,7 @@ body {
   right: 0;
 }
 
-body, .dropdown button, .dropdown-menu, ul.navbar-right .dropdown-item a:hover, .panel-body, .panel-heading, #product-details {
+body, .dropdown button, .dropdown-menu, ul.navbar-right .dropdown-item a:hover, .panel-body, .panel-heading, #product-details, .space {
   background-color: #50514B;
 }
 
@@ -77,4 +77,13 @@ input.btn.btn-block {
 
 .w-100 {
   width: 100%;
+}
+
+.space {
+  width: 100%;
+  height: 500%;
+}
+
+.carousel-caption {
+  text-shadow: 5px 5px 10px black;
 }
