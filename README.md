@@ -7,15 +7,20 @@
 ## Description
 
 _This app is a mock website for amazing products. As a user you can...._
+Sign Up, Sign In, Sign out
 
 See list of Products
 
+See Reviews of Products
+
+If sign is an admin user can..
+
 Add, Edit, Delete Products
 
-See Reviews of Products
 
 Add, Edit, Delete reviews
 
+_(Refer to ./db/seeds.rb file for admin authentication)_
 
 ## Setup/Installation Requirements
 * _Clone this repository_
@@ -24,19 +29,15 @@ Add, Edit, Delete reviews
 ```
  bundle install or i
  rails db:setup
- rails db:test:prepare
- rails db:seed
+ rails db:test:prepare(for development)
  rails server or s
 ```
 
 ## Future Functionality
 
-* Be able to sign in and out
 * Allow users to group products by a country of origin of their choice
 * Add a 'featured' boolean so admins can choose which products they'd like to feature.
 * Add a scope to retrieve the products with the highest average rating.
-* Show the average rating for each product.
-* Add Images throughout the site, including images for Products. You can use URLs (easiest) or use the Paperclip gem (which we'll be covering next week).
 
 ## Known Bugs 🐛🐛🐛
 

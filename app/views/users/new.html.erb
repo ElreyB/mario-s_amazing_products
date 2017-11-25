@@ -1,12 +1,12 @@
 <%= render 'layouts/errors', :object => @user %>
 
 <div class="signup-container">
-  <div class="well signup">
+  <div class="well well-color">
     <h1> Sign up</h1>
     <%= form_for @user do |f| %>
       <div class="form-group">
         <%= f.label "Email" %>
-        <%= f.text_field :email, class: "form-control"%>
+        <%= f.text_field :email, class: "form-control", placeholder: "email@example.com"%>
       </div>
 
       <div class="form-group">

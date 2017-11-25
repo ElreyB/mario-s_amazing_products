@@ -34,7 +34,7 @@ ul {
   width: 160px;
 }
 
-#recent-products, #usa-products, #most-reviewed-product, .signin, input.btn.btn-block, .signup {
+#recent-products, #usa-products, #most-reviewed-product, input.btn.btn-block, .well-color {
   text-align: center;
   background-color: #7F8F85;
 }
@@ -43,7 +43,7 @@ li.well, .breadcrumb, nav, ul.navbar-right a:hover {
   background-color: #DED7BD;
 }
 
-.text-light, h2, .dropdown-item a, button.text-light:hover, .signin, .signup {
+.text-light, h2, .dropdown-item a, button.text-light:hover, .well-color {
   color: #DED7BD;
 }
 
@@ -60,7 +60,7 @@ li.well, .breadcrumb, nav, ul.navbar-right a:hover {
   text-align: center;
 }
 
-.signin, .signup {
+.well-color {
   position: absolute;
   top: 50%;
   left: 50%;
