@@ -32,7 +32,11 @@ Add, Edit, Delete Products
 
 <img width="156" alt="add_product" src="https://user-images.githubusercontent.com/20192033/33226170-1fb68b66-d13c-11e7-8dfc-d6f4e400f5ce.png">
 
+<img width="232" alt="edit_product" src="https://user-images.githubusercontent.com/20192033/33226195-12fd9aa8-d13d-11e7-97c1-a11f4f752580.png">
+
 Add, Edit, Delete reviews
+
+<img width="206" alt="edit_review" src="https://user-images.githubusercontent.com/20192033/33226196-131765c8-d13d-11e7-9930-db2c9127f211.png">
 
 _(Refer to ./db/seeds.rb file for admin authentication)_
 
