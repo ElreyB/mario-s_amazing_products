@@ -1,17 +1,22 @@
 # _Mario's Amazing Products_
 
-#### _Mario's Amazing Products - Epicodus solo exercise, 11.17.2017_
+#### _Mario's Amazing Products - Epicodus solo exercise, 11.24.2017_
 
 #### By _**Elrey Belmonti**_
 
 ## Description
 
 _This app is a mock website for amazing products. As a user you can...._
+
 Sign Up, Sign In, Sign out
+
+_Once signed in user can..._
 
 See list of Products
 
 See Reviews of Products
+
+Add a review
 
 If sign is an admin user can..
 
