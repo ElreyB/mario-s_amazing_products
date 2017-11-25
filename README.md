@@ -10,18 +10,27 @@ _This app is a mock website for amazing products. As a user you can...._
 
 Sign Up, Sign In, Sign out
 
+<img width="194" alt="loogging" src="https://user-images.githubusercontent.com/20192033/33226167-1b3ca624-d13c-11e7-934a-53e75ead84f8.png">
+
 _Once signed in user can..._
 
 See list of Products
 
+<img width="196" alt="product_list" src="https://user-images.githubusercontent.com/20192033/33226168-1b555d9a-d13c-11e7-8c97-5b02d3a98f33.png">
+
 See Reviews of Products
 
+<img width="960" alt="review" src="https://user-images.githubusercontent.com/20192033/33226169-1b740d80-d13c-11e7-98a2-429b4d380c4a.png">
+
 Add a review
+
+<img width="828" alt="add_review" src="https://user-images.githubusercontent.com/20192033/33226171-1fe11a8e-d13c-11e7-9863-a65f738d5c39.png">
 
 If sign is an admin user can..
 
 Add, Edit, Delete Products
 
+<img width="156" alt="add_product" src="https://user-images.githubusercontent.com/20192033/33226170-1fb68b66-d13c-11e7-8dfc-d6f4e400f5ce.png">
 
 Add, Edit, Delete reviews
 
