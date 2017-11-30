@@ -8,12 +8,35 @@ class Product < ActiveRecord::Base
   scope :usa_products, -> { where({ country_of_origin: ["USA", "usa", "United States of America"] }) }
 
   def self.most_reviewed_product
-    product = Product.find(most_reviewed_product_id)
-    product
+    if most_reviewed_product_id
+      product = Product.find(most_reviewed_product_id)
+      return product
+    end
   end
 
+  def find_average
+    product_reviews = Review.of_product(self.id)
+    if product_reviews.length > 0
+      average_rating = product_reviews.reduce(0) do |sum, product|
+        sum + product.rating
+      end
+      return average_rating / product_reviews.length
+    else
+      return false
+    end
+  end
+
+  def self.three_images
+    images = product_images.shuffle
+    carousel_images = [images[0], images[1], images[2]]
+  end
 
 private
+
+  def self.product_images
+    products = Product.all
+    products.map { |product| product.image }
+  end
 
   def self.review_product_ids
     reviews = Review.all

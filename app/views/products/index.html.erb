@@ -1,6 +1,5 @@
 <% content_for(:products) do %>
-<div class="dropdown">
-  <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button type="button" class="btn btn-secondary btn-xs dropdown-toggle text-light" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Mario's Products
     <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
   </button>
@@ -14,34 +13,98 @@
       <p>There are no Products!!!!</p>
     <% end %>
   </div>
-</div>
 <% end %>
-<% content_for(:navbar) do %>
-  <li><a href="#" id="admin">Admin</a></li>
+
+<% if current_user && current_user.admin %>
+  <nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+      <li><a href="#"><%= link_to "Add Product", new_product_path %></a></li>
+    </ol>
+  </nav>
 <% end %>
-<nav aria-label="breadcrumb" role="navigation">
-  <ol class="breadcrumb">
-    <li><a href="#"><%= link_to "Add Product", new_product_path %></a></li>
+
+<% if !current_user %>
+<div class="jumbotron space"></div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
-</nav>
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= image_tag ("home-photo1.jpg"), class: 'w-100'%>
+      <div class="carousel-caption">
+        <h2>Amazing Projects</h2>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag ("home-photo2.jpg"), class: 'w-100'%>
+      <div class="carousel-caption">
+        <h2>That works for you.</h2>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag ("home-photo3.jpg"), class: 'w-100'%>
+      <div class="carousel-caption">
+        <h2><%= link_to "Sign In to See all our Products!!!", '/signin' %></h2>
+      </div>
+    </div>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
-<h2>Recent Products</h2>
-<% @three_recent_products.each do |product| %>
-  <ul>
-    <li><%= link_to product.name, product_path(product) %></li>
-  </ul>
-<% end %>
-
-<h2>Most Reviewed Product</h2>
-<p><%= link_to @most_reviewed_product.name, product_path(@most_reviewed_product) %></p>
-
-<h2>USA Products</h2>
-<% if @usa_products.any? %>
-  <% @usa_products.each do |product| %>
-    <ul>
-      <li><%= link_to product.name, product_path(product) %></li>
-    </ul>
-  <% end %>
 <% else %>
-  <p>USA products coming soon!!!</p>
+
+<div class="row well" id="recent-products">
+  <h2>Recent Products</h2>
+  <hr>
+  <ul>
+    <% @three_recent_products.each do |product| %>
+      <div class="col-md-4">
+        <li class="well">
+          <img class="home-photo" src="<%=product.image%>" alt="">
+          <h4><%= link_to product.name, product_path(product) %></h4>
+        </li>
+      </div>
+    <% end %>
+  </ul>
+</div>
+
+<div class="well row" id="most-reviewed-product">
+  <h3 class="text-light review-text">
+    Be the first to purchase our most recent product. Here at Mario's Amazing Products we ganruntte you will enjoy this product!
+  </h3>
+  <hr>
+  <% if @most_reviewed_product %>
+    <h4><%= link_to @most_reviewed_product.name, product_path(@most_reviewed_product) %></h4>
+    <img class="home-photo" src="<%=@most_reviewed_product.image%>" alt="">
+  <% end %>
+</div>
+
+
+<div class="well row" id="usa-products">
+  <h2>USA Products</h2>
+  <hr>
+  <% if @usa_products.any? %>
+  <ul>
+    <% @usa_products.each do |product| %>
+      <li class="col-md-6 well">
+        <img class="home-photo" src="<%=product.image%>" alt="">
+        <h4><%= link_to product.name, product_path(product)%></h4>
+      </li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p class="text-light">USA products coming soon!!!</p>
+  <% end %>
+</div>
+
 <% end %>

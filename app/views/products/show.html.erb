@@ -1,43 +1,61 @@
-<% content_for(:navbar) do %>
-  <li><a href="#" id="admin">Admin</a></li>
-<% end %>
-
-<nav aria-label="breadcrumb" role="navigation">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <a href="#"><%= link_to "Add review", new_product_review_path(@product) %></a>
-    </li>
-    <li class="breadcrumb-item">
-      <a href="#"><%= link_to "Edit Product", edit_product_path(@product) %></a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page">
-      <a href="#"><%= link_to "Delete Product", product_path(@product),
-                :data => {:confirm => "You sure?",
-                  :method => "delete"} %></a>
-    </li>
-  </ol>
-</nav>
-<h1><%= @product.name %> <small>From <%= @product.country_of_origin %> for $<%= @product.cost %> </small></h1>
-
-<% if @product.reviews.any? %>
-  <ul>
-    <% @product.reviews.each do |review| %>
-      <li class="well reviews">
-        <span class="admin">
-          <p><%= link_to "Edit Review", edit_product_review_path(@product, review) %> |
-            <%= link_to "Delete Review", product_review_path(@product, review),
-            :data => {:confirm => "You sure?",
-              :method => "delete"} %></p>
-            </span>
-        <h3><%= review.author%></h3>
-        <% review.rating.times{%> <span class="glyphicon glyphicon-star" aria-hidden="true"></span><%}%>
-        <hr>
-        <blockquote class="blockquote">
-          <p>"<%=review.content%>"</p>
-        </blockquote>
+<div class="container">
+  <nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="#"><%= link_to "Add review", new_product_review_path(@product) %></a>
       </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No reviews for <%= @product.name %></p>
-<% end %>
+      <% if current_user && current_user.admin %>
+        <li class="breadcrumb-item">
+          <a href="#"><%= link_to "Edit Product", edit_product_path(@product) %></a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <a href="#"><%= link_to "Delete Product", product_path(@product),
+                    :data => {:confirm => "You sure?",
+                      :method => "delete"} %></a>
+        </li>
+      <% end %>
+    </ol>
+  </nav>
+
+  <div class="panel">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="<%=@product.image%>" alt="product image" class="col-md-6 col-md-offset-3">
+        </div>
+        <div class="col-md-4 text-light" id="product-details">
+          <h1><%= @product.name %> <br><small class="text-light">From <%= @product.country_of_origin %> for $<%= @product.cost %> </small></h1>
+          <h3>Average Review Rating: <%= @average_rating %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <% if @product.reviews.any? %>
+        <ul>
+          <% @product.reviews.each do |review| %>
+            <li class="well reviews">
+              <% if current_user &&  current_user.admin %>
+                <span>
+                  <p>
+                    <%= link_to "Edit Review", edit_product_review_path(@product, review) %> |
+                    <%= link_to "Delete Review", product_review_path(@product, review),
+                    :data => {:confirm => "You sure?",
+                      :method => "delete"} %>
+                  </p>
+                </span>
+              <% end %>
+              <h3><%= review.author%> <small><%= review.created_at.strftime("%B %-d, %Y")%></small></h3>
+              <% review.rating.times{%> <span class="glyphicon glyphicon-star" aria-hidden="true"></span><%}%>
+              <hr>
+              <blockquote class="blockquote">
+                <p>"<%=review.content%>"</p>
+              </blockquote>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No reviews for <%= @product.name %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

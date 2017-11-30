@@ -1,0 +1,24 @@
+<%= render 'layouts/errors', :object => @user %>
+
+<div class="signup-container">
+  <div class="well well-color">
+    <h1> Sign up</h1>
+    <%= form_for @user do |f| %>
+      <div class="form-group">
+        <%= f.label "Email" %>
+        <%= f.text_field :email, class: "form-control", placeholder: "email@example.com"%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Password" %>
+        <%= f.password_field :password, class: "form-control"%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+      <%= f.submit "Sign Up", class: "btn btn-block" %>
+    <% end %>
+  </div>
+</div>

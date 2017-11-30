@@ -1,2 +1,80 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+body, .dropdown button, .dropdown-menu, ul.navbar-right .dropdown-item a:hover, .panel-body, .panel-heading, #product-details, .space {
+  background-color: #50514B;
+}
+
+body, a, .form-group input, #myCarousel h2 {
+  color: #50514B;
+}
+
+ul {
+  list-style: none;
+}
+
+.dropdown {
+  margin-top: 4%;
+}
+
+.dropdown-item {
+  padding: 7px;
+  margin: 0;
+}
+
+.dropdown button {
+  width: 160px;
+}
+
+#recent-products, #usa-products, #most-reviewed-product, input.btn.btn-block, .well-color {
+  text-align: center;
+  background-color: #7F8F85;
+}
+
+li.well, .breadcrumb, nav, ul.navbar-right a:hover {
+  background-color: #DED7BD;
+}
+
+.text-light, h2, .dropdown-item a, button.text-light:hover, .well-color {
+  color: #DED7BD;
+}
+
+.panel-heading {
+  border-bottom: 1px solid white;
+}
+
+.panel {
+  border: 0;
+}
+
+#product-details {
+  margin-top: 3%;
+  text-align: center;
+}
+
+.well-color {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input.btn.btn-block {
+  border: 1px solid #DED7BD
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.home-photo {
+  max-width: 100%;
+}
