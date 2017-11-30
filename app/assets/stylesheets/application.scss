@@ -62,7 +62,7 @@ li.well, .breadcrumb, nav, ul.navbar-right a:hover {
 
 .well-color {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -77,4 +77,8 @@ input.btn.btn-block {
 
 .home-photo {
   max-width: 100%;
+}
+
+.text-danger {
+  color: #9a0401;
 }

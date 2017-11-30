@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
     index = rand(1..10)
 
     @product = Product.new(product_params)
-    @product.image = Faker::LoremPixel.image("200x200", false, image_category[rand(0..image_category.length-1)], index)
+    @product.image = Faker::LoremPixel.image("900x900", false, image_category[rand(0..image_category.length-1)], index)
     if @product.save
       flash[:notice] = "Your product has been saved!"
       redirect_to products_path

@@ -1,7 +1,6 @@
-<%= render 'layouts/errors', :object => @user %>
-
 <div class="signup-container">
   <div class="well well-color">
+    <%= render 'layouts/errors', :object => @user %>
     <h1> Sign up</h1>
     <%= form_for @user do |f| %>
       <div class="form-group">
